@@ -1,0 +1,28 @@
+{
+  "name": "four-color-ascii-canvas",
+  "version": "1.0.0",
+  "description": "Efficient ASCII Canvas in the terminal with four colors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MX-Futhark/four-color-ascii-canvas.git"
+  },
+  "keywords": [
+    "ascii",
+    "ansi",
+    "terminal",
+    "canvas"
+  ],
+  "author": "Maxime PIA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MX-Futhark/four-color-ascii-canvas/issues"
+  },
+  "homepage": "https://github.com/MX-Futhark/four-color-ascii-canvas#readme",
+  "dependencies": {
+    "ansi": "^0.3.1"
+  }
+}
