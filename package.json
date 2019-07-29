@@ -1,6 +1,6 @@
 {
   "name": "four-color-ascii-canvas",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Efficient ASCII Canvas in the terminal with four colors",
   "main": "index.js",
   "scripts": {

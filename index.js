@@ -2,9 +2,18 @@ const cursor = require('ansi')(process.stdout);
 
 module.exports = class FourColorASCIICanvas {
 
-    constructor (width, height) {
+    /**
+     * @param {number} width
+     * @param {number} height
+     * @param {object} options
+     * @param {string} options.palette - 'black-on-white' | 'white-on-black'
+     */
+    constructor (width, height, options = { palette: 'white-on-black' }) {
         this._width = width;
         this._height = height;
+        this._palette = (options || {}).palette === 'black-on-white'
+            ? FourColorASCIICanvas.INVERTED_PALETTE
+            : FourColorASCIICanvas.PALETTE
 
         this._previousPixels = [];
     }
@@ -19,6 +28,10 @@ module.exports = class FourColorASCIICanvas {
             ['"', 'T', 'I', '6'],
             ['*', 'P', '9', '8']
         ];
+    }
+
+    static get INVERTED_PALETTE () {
+        return FourColorASCIICanvas.PALETTE.slice().reverse().map(row => row.slice().reverse());
     }
 
     paint (pixels) {
@@ -36,7 +49,7 @@ module.exports = class FourColorASCIICanvas {
             const topBrightnessLevel = getBrighnessLevel(ndarray, topPixelIndex);
             const bottomBrightnessLevel = getBrighnessLevel(ndarray, bottomPixelIndex);
 
-            return FourColorASCIICanvas.PALETTE[topBrightnessLevel][bottomBrightnessLevel];
+            return this._palette[topBrightnessLevel][bottomBrightnessLevel];
         };
 
         const canvasLength = this._width * this._height;
